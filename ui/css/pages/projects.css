@@ -1,0 +1,173 @@
+main.projects {
+    display: -webkit-box;
+    display: -moz-flex;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+@-webkit-keyframes growScale {
+    to {
+        -webkit-transform: scale(1);
+    }
+}
+
+@keyframes growScale {
+    to {
+        transform: scale(1);
+    }
+}
+
+main.projects>article {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    -webkit-animation-name: growScale;
+    animation-name: growScale;
+}
+
+main.projects>article:target {
+    z-index: 1;
+}
+
+main.projects>article:target .card {
+    box-shadow: 0 0 100px hsl(200, 100%, 50%);
+    -webkit-transform: scale(1.05);
+    transform: scale(1.05);
+}
+
+main.projects>article:hover .card {
+    z-index: 1;
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+    -webkit-transition-timing-function: cubic-bezier(0.25, 1, 0.25, 1);
+    transition-timing-function: cubic-bezier(0.25, 1, 0.25, 1);
+}
+
+main.projects>article:hover .card>.back {
+    background-color: hsla(0, 0%, 100%, 0.9);
+    -webkit-transition-delay: 100ms;
+    transition-delay: 100ms;
+}
+
+main.projects .card {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    -webkit-transform: rotateY(0deg);
+    transform: rotateY(0deg);
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transition-property: -webkit-transform, box-shadow;
+    transition-property: transform, box-shadow;
+    -webkit-transition-duration: 1s, 400ms;
+    transition-duration: 1s, 400ms;
+    -webkit-transition-timing-function: cubic-bezier(0.5, 0.1, 0.75, 0.5), ease;
+    transition-timing-function: cubic-bezier(0.5, 0.1, 0.75, 0.5), ease;
+}
+
+main.projects .card>div {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border-radius: 3px;
+    box-shadow: 0 2px 2px hsla(0, 0%, 0%, 0.14), 0 3px 1px -2px hsla(0, 0%, 0%, 0.12), 0 1px 5px hsla(0, 0%, 0%, 0.1);
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+}
+
+main.projects .card>.back {
+    background-color: white;
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+    -webkit-transition-property: background-color;
+    transition-property: background-color;
+    -webkit-transition-duration: 800ms;
+    transition-duration: 800ms;
+}
+
+main.projects .card>div>* {
+    -webkit-transform: scale(0.9)translateZ(25px);
+    transform: scale(0.9)translateZ(25px);
+}
+
+main.projects .card>.front>img {
+    width: 100%;
+    height: 100%;
+}
+
+main.projects .card>.back>h2 {
+    margin: 8px 0 0 4px;
+}
+
+main.projects .card>.back>p {
+    margin: 0.8em 0;
+    text-align: center;
+    font-size: 14px;
+}
+
+main.projects .vendors {
+    display: -webkit-box;
+    display: -moz-flex;
+    display: flex;
+    margin: 20px 0;
+}
+
+main.projects h2+.vendors {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+main.projects .vendors>a {
+    margin: auto;
+}
+
+main.projects .vendors>a>svg {
+    display: block;
+    margin: 0 auto;
+    width: 2.5em;
+    fill: currentColor;
+    -webkit-transition: -webkit-transform 500ms;
+    transition: transform 500ms;
+}
+
+main.projects .vendors>a:hover>svg {
+    -webkit-transform: rotate(270deg);
+    transform: rotate(270deg);
+}
+
+main.projects .vendors>a>.icon-github {
+    font-size: 40px;
+}
+
+@media screen and (min-width:410px) {
+    main.projects>article {
+        width: 180px;
+        height: 180px;
+    }
+}
+
+@media screen and (min-width:635px) {
+    main.projects {
+        max-width: 635px;
+    }
+
+    main.projects>article {
+        width: 200px;
+        height: 200px;
+    }
+}
+
+@media screen and (min-width:935px) {
+    main.projects {
+        max-width: 900px;
+    }
+}
